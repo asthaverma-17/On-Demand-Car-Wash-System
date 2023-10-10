@@ -1,0 +1,8 @@
+#userHomepage{
+    padding: 100px 0px;
+    height: 100vh;
+    background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),url('https://media.istockphoto.com/id/1151475579/photo/side-mirror-and-window-of-orange-vehicle-washed-in-self-serve-car-wash-left-part-filled-with.jpg?s=612x612&w=0&k=20&c=3NXYbQ7gJqwhxrH8pWL7u9mPDHJQo1DLlNX5HXQThr8=');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+}

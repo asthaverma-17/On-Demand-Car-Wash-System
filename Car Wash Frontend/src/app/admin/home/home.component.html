@@ -1,0 +1,84 @@
+<section id="adminWashpack">
+  <div class="container">
+    <div class="row">
+      <div class="d-flex">
+        <div class="col">
+          <h1 class="fw-bold">Washpack</h1>
+        </div>
+        <div class="col-auto">
+          <a class="btn btn-primary px-4 py-2" routerLink="/admin/addWP"
+            >Add WashPack</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div
+        class="col-3 mh-100 py-2"
+        *ngFor="let item of allWashpacks"
+        id="{{ item.pack_id }}"
+      >
+        <div class="card shadow border-0 h-100 p-3">
+          <div
+            class="card-header bg-white fw-bold border-0 text-center fs-4 pb-3"
+          >
+            {{ item.name }}
+          </div>
+          <div class="card-body">
+            <p><span class="fw-bold">Cost : </span> {{ item.cost }}</p>
+            <p>
+              <span class="fw-bold">Description :</span> {{ item.description }}
+            </p>
+          </div>
+          <div class="card-footer text-center bg-white border-0">
+            <a
+              class="btn btn-primary px-4 py-2 rounded-pill"
+              [routerLink]="['/admin/updateWp', item.pack_id]"
+              >Edit</a
+            >
+            <button
+              type="button"
+              class="btn btn-danger ms-3 px-4 py-2 rounded-pill"
+              (click)="openDeleteModal(item.pack_id)"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container d-none">
+  <div class="pt-5">
+    <div class="card"></div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Confirm Delete</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are you sure to delete this item?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="delete()">
+          Confirm Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

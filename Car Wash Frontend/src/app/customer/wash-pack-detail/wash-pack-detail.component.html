@@ -1,0 +1,38 @@
+<section id="userWasherPackDetail" class="bg-muted">
+    <div class="container h-100 p-5">
+        <div class="card shadow border-0 p-3 h-100">
+            <div class="card-header bg-white border-0 text-center fs-3 fw-bold py-5">
+                {{ WPList.name }}
+            </div>
+            <div class="card-body overflow-auto">
+                <p><span class="fw-bold fs-5">Description - </span>{{ WPList.description }}</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <p><span class="fw-bold fs-5">Cost : </span> ₹{{ WPList.cost }}</p>
+            </div>
+        </div>
+        <div class="card d-none">
+            <div class="container-fluid icon text-center">
+                <mat-icon mat-list-icon [inline]="true">local_drink</mat-icon>
+            </div>
+            <mat-card-content>
+                <mat-action-list>
+                    <mat-list-item class="mt">{{ WPList.name
+                        }}</mat-list-item>
+                    <mat-list-item class="mt">
+                        <mat-icon mat-list-icon>money</mat-icon>₹{{ WPList.cost }}
+                    </mat-list-item>
+                        <p class="mt"><mat-icon mat-list-icon>list_alt</mat-icon>{{ WPList.description
+                        }}</p>
+                        <br>
+                        <br>
+                        <mat-icon></mat-icon>
+                        <button class="btn btn-primary" (click)="back()">Back</button>
+                        
+                </mat-action-list>
+            </mat-card-content>
+
+        </div>
+    </div>
+</section>
+

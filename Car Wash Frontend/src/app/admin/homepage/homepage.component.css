@@ -1,0 +1,6 @@
+#welcome{
+    height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7lnPHyGHYEQW8xTxCZo14fY65rECItMbN319xPCaoRUM7YZFNqSAeCuIlAdmUBK78YJA&usqp=CAU');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

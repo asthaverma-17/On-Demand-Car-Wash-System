@@ -1,0 +1,39 @@
+<section id="adminGetAllOrder">
+    <div class="container">
+        <button class="px-4 py-2" type="button" mat-raised-button  color="primary" routerLink="../completed" ><b>Completed</b></button>
+        <button class="px-4 py-2 ms-3" type="button" mat-raised-button  color="primary" routerLink="../pending" ><b>Pending</b></button>
+        <button class="px-4 py-2 ms-3" type="button" mat-raised-button  color="primary" routerLink="../unassigned" ><b>Unassigned</b></button>
+        <button class="px-4 py-2 ms-3" type="button" mat-raised-button  color="warn" routerLink="../cancelled" ><b>Cancelled</b></button>
+        <h3 class="fs-4 my-3 fw-bold">Orders</h3>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">ORDER ID</th>
+                        <th scope="col">CUSTOMER</th>
+                        <th scope="col">CONTACT</th>
+                        <th scope="col">LOCATION PIN</th>
+                        <th scope="col">WASHER NAME</th>
+                        <th scope="col">WASH PACK</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">CAR NAME</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let order of OrderList; let i=index;">
+                            <td>{{order.orderId}}</td>
+                            <td>{{ order.useremailid }}</td> 
+                            <td>{{ order.phoneNo }}</td>
+                            <td>{{ order.areapincode }}</td>
+                            <td>{{ order.washerName }}</td>
+                            <td>{{ order.washpacks }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>{{order.cars.id}},{{order.cars.name }}, {{order.cars.model}}</td>
+                        </tr>                   
+                      </tbody>
+           </table>
+        </div>
+    </div>
+    </div>
+</section>

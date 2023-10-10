@@ -1,0 +1,71 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark py-2">
+  <div class="container">
+    <a class="navbar-brand d-flex" href="/landing-page">
+      <img
+        src="https://png.pngtree.com/png-clipart/20230424/original/pngtree-car-wash-flat-icon-png-image_9093769.png"
+        width="50"
+        alt=""
+      />
+      <div
+        class="text-wrapper d-flex flex-column align-items-center justify-content-center"
+      >
+        <span class="txt text-white ms-3">CAR WASH</span>
+        <span class="text-white ms-3 d-block fs-6">CORNER</span>
+      </div>
+    </a>
+    <div>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <div class="dropdown">
+            <button
+              class="nav-link active text-white bg-dark rounded-pill px-4 py-2 dropdown-toggle"
+              *ngIf="!_authService.loggedIn()"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Login
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <button class="dropdown-item py-2" routerLink="/adminlogin">
+                  Login Admin
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item py-2"
+                  *ngIf="!_authService.loggedIn()"
+                  routerLink="/login"
+                >
+                  Login User
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item py-2" routerLink="/washerlogin">
+                  Login Washer
+                </button>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button
+            color="warning"
+            class="nav-link active text-white bg-dark rounded-pill px-4 py-2"
+            style="cursor: pointer"
+            *ngIf="_authService.loggedIn()"
+            (click)="_authService.logoutUser()"
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<footer class="fixed-bottom">
+  <p class="text-white text-center py-3 m-0">&#169; 2023 Car Wash Corner</p>
+</footer>

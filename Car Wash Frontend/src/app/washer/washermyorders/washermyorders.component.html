@@ -1,0 +1,40 @@
+
+<section id="washerMyOrder">
+    <div  class="container">
+      <h3 class="fs-3 fw-bold">MY ORDERS</h3>  
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ORDER ID</th>
+                <th scope="col">CUSTOMER</th>
+                <th scope="col">CONTACT</th>
+                <th scope="col">LOCATION PIN</th>
+                <th scope="col">WASHER NAME</th>
+                <th scope="col">WASHPACK</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">CAR NAME</th>
+                <th scope="col">UPDATE STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor ="let order of OrderList; let i=index;">
+                <td>{{order.orderId}}</td>
+                <td>{{ order.useremailid }}</td> 
+                <td>{{ order.phoneNo }}</td>
+                <td>{{ order.areapincode }}</td>
+                <td>{{ order.washerName }}</td>
+                <td>{{ order.washpacks }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.cars.name }}, {{order.cars.model}}</td> 
+                <td>
+                    <button (click) = "CompletedOrder(order.orderId);" *ngIf="order.status==='Pending'"  mat-raised-button color="accent">Completed</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>

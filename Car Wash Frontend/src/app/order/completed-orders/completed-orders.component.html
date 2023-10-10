@@ -1,0 +1,59 @@
+<section id="adminGetCompleteOrder">
+  <div class="container">
+    <button class="px-4 py-2 mb-3" type="button" mat-raised-button  color="primary" (click)="back();" ><b>Go Back</b></button>
+    <h3 class="fs-4 my-3 fw-bold">Completed Orders</h3>
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">orderId</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Location Pin</th>
+              <th scope="col">Washer Name</th>
+              <th scope="col">Washpack</th>
+              <th scope="col">Status</th>
+              <th scope="col">Car Name</th>
+              <th scope="col">Controls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of OrderList; let i=index;">
+              <td>{{order.orderId}}td>
+              <td>{{ order.useremailid }}</td> 
+              <td>{{ order.phoneNo }}</td>
+              <td>{{ order.areapincode }}</td>
+              <td>{{ order.washerName }}</td>
+              <td>{{ order.washpacks }}</td>
+              <td>{{ order.status }}</td>
+              <td>{{ order.cars.name }}, {{order.cars.model}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="openDeleteModal(order.orderId)">Delete</button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete this item?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="deleteOrder()">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

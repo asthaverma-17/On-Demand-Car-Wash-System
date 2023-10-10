@@ -1,0 +1,64 @@
+<section id="userProfile" class="bg-muted">
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-sm-6 offset-md-3">
+                <mat-card color="primary" class="border-0 shadow p-3">
+                    <mat-card-header class="text-center">
+                        <div class="container">
+                            <mat-card-title class="fw-bold fs-3 py-3">Profile</mat-card-title>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content class="text-center">
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="text" name="email" id="email"
+                                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" required
+                                    [(ngModel)]="customer[0].email">
+                                    <mat-error *ngIf="email.errors?.['pattern']">
+                                        Enter correct email
+                                    </mat-error>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Full Name</mat-label>
+                            <input matInput type="text" name="fullname" id="fullname" #fullName="ngModel" required
+                                [(ngModel)]="customer[0].fullName"  pattern="[a-zA-Z ]{5,}">
+                                <mat-error *ngIf="fullName.errors?.['pattern']">
+                                    Invalid Name,Min 6 letters 
+                                </mat-error>
+                        </mat-form-field>
+                            {{customer.fullName}}
+                        </p>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Phone Number</mat-label>
+                                <input matInput type="tel" name="phonenumber" id="phonenumber" #phoneNumber="ngModel"
+                                    required [(ngModel)]="customer[0].phoneNumber" pattern="^((\\+91-?)|0)?[0-9]{10}$">
+                                    <mat-error *ngIf="phoneNumber.errors?.['pattern']">
+                                        Enter 10 digit phone Number
+                                    </mat-error>
+
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>UserName</mat-label>
+                                <input matInput type="text" name="username" id="username" #username="ngModel" required
+                                    [(ngModel)]="customer[0].username" pattern="[A-Za-z]{6,}">
+                                    <mat-error *ngIf="username.errors?.['pattern']">
+                                        Enter min 6 letters username
+                                     </mat-error>
+                            </mat-form-field>
+                        </p>
+                        <div class="container text-center">
+                            <button type="submit" (click)="updateCustomerDetails()" mat-raised-button
+                                color="accent">Save Details</button>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

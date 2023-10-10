@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="pt-5">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-6">
+              <h3>ALL WASHPACKS</h3>      
+              </div>
+          </div>
+        </div>
+        <div class="card-body" style="height: 575px; overflow-y : scroll;">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Description</th>  
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>   
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let wp of WPList; let i=index;">
+                <th scope="row">{{i+1}}</th>
+                <td> {{wp.name}} </td>
+                <td> ₹{{wp.cost}} </td>
+                <td> {{wp.description}} </td>
+                <td>
+                  <button (click)='updateWP(wp.id);' color="accent" mat-raised-button><fa-icon [icon]="edit"></fa-icon>&nbsp;&nbsp;Edit</button>
+                </td>
+                <td>
+                  <button (click)='delWP(wp.id);' color="warn" mat-mini-fab><fa-icon [icon]="trash"></fa-icon></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>

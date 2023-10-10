@@ -1,0 +1,67 @@
+<section id="adminAddWashpack" class="container d-flex align-items-center">
+  <div class="col-sm-6 offset-md-3">
+    <legend class="mb-3 fw-bold text-center">Add WashPack</legend>
+    <form #f="ngForm" (ngSubmit)="f.form.valid && add()">
+      <div class="form-group mb-3">
+        <label for="txtname" class="form-label">Pack Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="txtname"
+          required="required"
+          name="name"
+          #name="ngModel"
+          pattern="[A-Za-z\s]{5,30}"
+          [class.is-invalid]="name.invalid && name.touched"
+          [(ngModel)]="addWashPack.name"
+          placeholder="Enter Name"
+        />
+        <div *ngIf="name.errors && name.invalid && name.touched">
+          <small class="text-danger" *ngIf="name.errors?.['required']"
+            >Pack Name is required</small
+          >
+          <small class="text-danger" *ngIf="name.errors?.['pattern']"
+            >Enter valid Pack Name</small
+          >
+        </div>
+      </div>
+
+      <label for="txtCost" class="form-label">Cost</label>
+      <input
+        type="number"
+        class="form-control"
+        id="txtcost"
+        [class.is-invalid]="cost.invalid && cost.touched"
+        required
+        name="cost"
+        #cost="ngModel"
+        [(ngModel)]="addWashPack.cost"
+      />
+      <div *ngIf="cost.errors && cost.invalid && cost.touched">
+        <small class="text-danger" *ngIf="cost.errors?.['required']"
+          >Cost must be Entered</small
+        >
+      </div>
+
+      <label for="txtdescription" class="form-label mt-3">Description</label>
+      <textarea
+        rows="5"
+        cols="60"
+        class="form-control"
+        id="txtdescription"
+        name="description"
+        [(ngModel)]="addWashPack.description"
+        placeholder="Type Here"
+      >
+      </textarea>
+
+      <button
+        type="submit"
+        [disabled]="f.form.invalid"
+        class="btn btn-primary px-4 py-2 mt-4 d-table ms-auto"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</section>

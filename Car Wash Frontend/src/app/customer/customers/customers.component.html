@@ -1,0 +1,31 @@
+<section id="adminAllUsers">
+  <div class="container">
+    <div class="row">
+      <h3 class="fw-bold fs-2 mb-4">Customers</h3>
+      <div class="card">
+        <div class="card-body p-0">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">SR. NO</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">FULL NAME</th>
+                <th scope="col">PHONE NUMBER</th>
+                <th scope="col">USERNAME</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customerList; let i=index;">
+              <td>{{ i+1 }}</td>
+                <td>{{ customer.email}}</td>
+                <td>{{ customer.fullName}}</td>
+                <td>{{ customer.phoneNumber}}</td>
+                <td>{{ customer.username}}</td>  
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<section id="washerUnassignedOrder">
+    <div class="container">   
+      <h3 class="fw-bold fs-3">Unassigned Orders</h3>
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">orderId</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Location Pin</th>
+                <th scope="col">Washer Name</th>
+                <th scope="col">Washpack</th>
+                <th scope="col">Status</th>
+                <th scope="col">Car Name</th>
+                <th >Assign Washer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of OrderList; let i=index;">
+                <td>{{order.orderId}}</td>
+                <td>{{ order.useremailid }}</td> 
+                <td>{{ order.phoneNo }}</td>
+                <td>{{ order.areapincode }}</td>
+                <td>{{ order.washerName }}</td>
+                <td>{{ order.washpacks }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.cars.name }}, {{order.cars.model}}</td>
+                <td>
+                    <a class="btn btn-primary px-4 py-2" *ngIf="order.status==='Pending'" [routerLink]="['/washer/assignwasher',order.orderId]">Assign</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+

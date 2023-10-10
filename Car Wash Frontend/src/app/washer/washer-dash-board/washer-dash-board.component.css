@@ -1,0 +1,14 @@
+.dashboard-col-2
+{
+    background-color: white;
+    color: white;
+    width: 250px;
+}
+.padding-0{
+    padding-right:0px;
+    padding-left:0px;
+}
+
+#washerDashboardWrapper{
+    padding: 0px 0px;
+}

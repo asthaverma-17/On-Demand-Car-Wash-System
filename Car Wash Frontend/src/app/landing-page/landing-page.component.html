@@ -1,0 +1,31 @@
+<section id="landingPage" class="d-flex align-items-center min-vh-100">
+  <div class="container">
+    <h1 class="text-center fw-bold fs-1">Welcome To</h1>
+    <h2 class="text-center fs-2 mb-5">Car Wash Corner</h2>
+    <div id="washerbutton">
+      <h2 class="text-center">Join us! Your car wash is one click away</h2>
+      <div class="dropdown">
+        <button
+          class="btn btn-dark my-2 px-4 py-2 d-table mx-auto rounded-pill dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Register
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <button class="dropdown-item py-2" (click)="regis()">
+              Register As User
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item py-2" routerLink="/washerregister">
+              Register As Washer
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

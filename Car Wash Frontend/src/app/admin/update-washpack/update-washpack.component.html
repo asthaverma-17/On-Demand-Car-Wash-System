@@ -1,0 +1,44 @@
+<div class="bootstrap-wrapper">
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-6 offset-md-3">
+                <mat-card color="primary">
+                    <mat-card-header class="text-center">
+                        <div class="container">
+                            <fa-icon [icon]="edit"></fa-icon>
+                            <mat-card-title style="font-weight: bold;">Update WASHPACK</mat-card-title>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content class="text-center">
+                      <p>
+                        <mat-form-field appearance="outline">
+                          <mat-label>WashPack Name</mat-label>
+                          <input matInput required  [(ngModel)]=wp.name>
+                          <mat-hint>Enter the washpack name</mat-hint>
+                        </mat-form-field>
+                      </p>
+                      <p>
+                        <mat-form-field appearance="outline">
+                          <mat-label>Cost</mat-label>
+                          <input matInput required [(ngModel)]=wp.cost>
+                          <mat-hint>What will be the cost</mat-hint>
+                        </mat-form-field>
+                      </p>
+                      <p>
+                        <mat-form-field appearance="outline">
+                          <mat-label>Services Offered</mat-label>
+                          <input matInput required [(ngModel)]=wp.description>
+                          <mat-hint>What this pack offer?</mat-hint>
+                        </mat-form-field>
+                      </p>
+                      <div class="container text-center">
+                            <button type="submit" (click)='updateWPNow();' mat-raised-button
+                                    color="primary">Update</button>
+                      </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+

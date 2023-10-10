@@ -1,0 +1,52 @@
+
+<div id="adminAllWasher">
+  <div class="container">
+    <div class="row">
+      <h2 class="fw-bold fs-3">Washers</h2>
+    </div>
+    <div class="card">  
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">EMAIL</th>
+              <th scope="col">FULL NAME</th>
+              <th scope="col">PHONE NUMBER</th> 
+              <th scope="col">STATUS</th>
+              <th scope="col">USER NAME</th>
+              <th scope="col">DELETE WASHER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let washer of WashersList">
+              <td scope="row">{{washer.email}}</td>
+              <td>{{ washer.fullName}}</td>
+              <td>{{ washer.phoneNunmber}}</td>
+              <td>{{ washer.status}}</td>
+              <td>{{ washer.username}}</td>
+              <td>
+                  <button type="button" class="btn btn-danger px-4 py-2" (click)="openDeleteModal(washer.email)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div> 
+  
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete this item?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="deleteWasher()">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+  

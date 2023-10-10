@@ -1,0 +1,12 @@
+.btn1{
+margin-left: 50px;
+}
+matmat-form-field{
+    width: 100%;
+    padding: 12px 20px;
+}
+#userProfile{
+    padding: 200px 0px;
+    height: 100vh;
+    overflow: auto;
+}

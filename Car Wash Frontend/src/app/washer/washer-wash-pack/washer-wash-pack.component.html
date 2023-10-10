@@ -1,0 +1,18 @@
+<section id="washerAllPack">
+    <div class="container">
+        <div class="row">
+            <h1 class="fw-bold fs-3">WASHPACKS</h1>
+            <div class="col-3 p-3 mh-100" *ngFor="let wp of WPList; index as ind"s>
+                <div class="card border-0 shadow p-3 h-100">
+                    <div class="card-header bg-white border-0 text-center fw-bold fs-5">
+                        {{ wp.name }}
+                    </div>
+                    <div class="card-body">
+                        <p><span class="fw-bold me-2">cost :</span>₹{{ wp.cost }}</p>
+                        <p><span class="fw-bold me-2">Description :</span>₹{{ wp.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

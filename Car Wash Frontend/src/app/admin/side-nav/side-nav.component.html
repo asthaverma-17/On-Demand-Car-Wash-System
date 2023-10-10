@@ -1,0 +1,23 @@
+<mat-action-list class="admin-sidebar bg-dark ps-2">
+  <div mat-subheader class="text-white text-center fs-3"><b>ADMIN</b></div>
+  <button mat-list-item [routerLink]="['/admin/']">
+    <fa-icon [icon]="home" class="me-2 text-white"></fa-icon
+    ><span class="text-white">Home</span>
+  </button>
+  <button mat-list-item [routerLink]="['/admin/orders']">
+    <fa-icon [icon]="shoppingbag" class="me-2 text-white"></fa-icon
+    ><span class="text-white">Orders</span>
+  </button>
+  <button mat-list-item [routerLink]="['/admin/washers']">
+    <fa-icon [icon]="washer" class="me-2 text-white"></fa-icon
+    ><span class="text-white">Washers</span>
+  </button>
+  <button mat-list-item [routerLink]="['/admin/customers']">
+    <fa-icon [icon]="user" class="me-2 text-white"></fa-icon
+    ><span class="text-white">Users</span>
+  </button>
+  <button mat-list-item [routerLink]="['/admin/home']">
+    <fa-icon [icon]="wp" class="me-2 text-white"></fa-icon
+    ><span class="text-white">Washpacks</span>
+  </button>
+</mat-action-list>

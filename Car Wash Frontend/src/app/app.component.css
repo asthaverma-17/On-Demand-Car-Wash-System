@@ -1,0 +1,20 @@
+.navbar{
+    background-color: rgb(0, 0, 0);
+}
+
+footer{
+    background-color: black;
+}
+
+.dropdown-login{
+    z-index:9;
+}
+
+.txt{
+    color: black !important;
+    -webkit-text-stroke-color:white !important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-fill-color: black;
+    font-size: 25px;
+    margin-bottom: 4px;
+}

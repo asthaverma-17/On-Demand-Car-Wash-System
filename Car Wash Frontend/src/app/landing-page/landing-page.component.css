@@ -1,0 +1,5 @@
+#landingPage{
+    background-image: linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.6)),url('https://t3.ftcdn.net/jpg/03/84/49/90/360_F_384499087_GYV0jXfna3Yrd6VvZGfiLkXGwnNk8evE.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

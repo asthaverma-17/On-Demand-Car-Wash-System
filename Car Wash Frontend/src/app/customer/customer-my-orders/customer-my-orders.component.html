@@ -1,0 +1,56 @@
+<section id="userMyOrder">
+    <div class="container">
+      <h3 class="fw-bold fs-3">MY ORDERS</h3> 
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Customer</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Location Pin</th>
+                <th scope="col">Washer Name</th>
+                <th scope="col">Washpack</th>
+                <th scope="col">Status</th>
+                <th scope="col">Car Name</th>
+                <th scope="col">Cancellation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor ="let order of OrderList; let i=index;">
+                <td>{{ order.useremailid }}</td> 
+                <td>{{ order.phoneNo }}</td>
+                <td>{{ order.areapincode }}</td>
+                <td>{{ order.washerName }}</td>
+                <td>{{ order.washpacks }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.cars.name }}, {{order.cars.model}}</td> 
+                
+                <td>
+                  <button type="button" class="btn btn-danger px-4 py-2"  *ngIf="(order.status==='Pending')&&(order.washerName==='NA')" (click)="openCancelModal(order.orderId)">Cancel Order</button>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</section> 
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center fs-4 py-5 fw-bold">
+        Are you sure to Cancel this Order?
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-danger d-table mx-auto" (click)="cancelOrder()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
