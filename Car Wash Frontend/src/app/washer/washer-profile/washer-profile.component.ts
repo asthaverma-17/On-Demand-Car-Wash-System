@@ -15,7 +15,7 @@ export class WasherProfileComponent implements OnInit {
     email:'',
     fullName:'',
     status:'',
-    phoneNunmber:'',
+    phoneNumber:'',
     username:''
   };
   

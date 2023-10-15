@@ -12,6 +12,7 @@ import com.green.car.wash.company.washer.service.WasherService;
 import java.util.List;
 
 
+
 @CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/washers")
@@ -20,6 +21,7 @@ public class WasherController {
     WasherService wr;
     @Autowired
     WasherProfileService wps;
+    
 
     /** Only the methods that consume rest template are below this comment **/
     //To see the Unassigned orders
@@ -50,13 +52,15 @@ public class WasherController {
     }
     @GetMapping("/admin/getWashers")
     public List<WasherProfile> getAllWashers(){
+    
         return wps.getAllWashers();
+
     }
     @GetMapping("/admin/Washer/{fullName}")
     public List<WasherProfile> getAllWashers(@PathVariable String fullName){
         return wps.getWasher(fullName);
     }
-    @DeleteMapping("/admin/delete/{email}")
+    @GetMapping("/admin/delete/{email}")
     public void deleteproduct(@PathVariable String email)
     {
 

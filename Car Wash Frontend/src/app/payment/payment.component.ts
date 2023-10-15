@@ -13,74 +13,24 @@ declare var Razorpay: any;
 export class PaymentComponent implements OnInit {
   paymentHandler: any = null;
   WPList: any;
-  productAmount=200;
+  
+  productAmount=500;
   totalAmount=1000;
+
   
   constructor(private router:Router, private route:ActivatedRoute, private service:CustomerService) {}
   ngOnInit() {
-    // this.route.paramMap.subscribe((param)=> {let name = (param.get('name'))
-    // console.log(name);
-    // this.getWPByName(name);
-  // });
-    // this.invokeStripe();
+    
     
   }
-  // getWPByName(name:any){
-  //   this.service.getWashPackName(name).subscribe((data)=>{
-  //     this.WPList=data;
-  //   })
-
-  // }
-
-  // makePayment(amount: any) {
-  //   const paymentHandler = (<any>window).StripeCheckout.configure({
-  //     key: 'pk_test_51Mc0srSFdGebVWh25jqdThtTJwRSeF7QnqdQBN05XzHg0sM205Sha3ISF2BcAAKuxxhmawmxGm19lKzlSpGTqyOt00si6EBlSc',
-  //     locale: 'auto',
-  //     token: function (stripeToken: any) {
-  //       console.log(stripeToken);
-  //       // alert('Token Generated');
-  //       Swal.fire({
-  //         title:'payment syccessful and order Placed',
-  //         icon:'success'
-  //       });
-          
-        
-  //     },
-      
-      
-  //   });
-  //   paymentHandler.open({
-  //     name: 'CarWash',
-  //     description: this.WPList.name,
-  //     // amount: amount * 100,
-  //   });
-  //   // this.router.navigate(['user'])
-  //   this.router.navigate(['user/customerhomepage'])
-  // }
-  // invokeStripe() {
-  //   if (!window.document.getElementById('stripe-script')) {
-  //     const script = window.document.createElement('script');
-  //     script.id = 'stripe-script';
-  //     script.type = 'text/javascript';
-  //     script.src = 'https://checkout.stripe.com/checkout.js';
-  //     script.onload = () => {
-  //       this.paymentHandler = (<any>window).StripeCheckout.configure({
-  //         key: 'pk_test_51Mc0srSFdGebVWh25jqdThtTJwRSeF7QnqdQBN05XzHg0sM205Sha3ISF2BcAAKuxxhmawmxGm19lKzlSpGTqyOt00si6EBlSc',
-  //         locale: 'auto',
-  //         token: function (stripeToken: any) {
-  //           console.log(stripeToken);
-  //           alert('Payment has been successfull!');
-  //         },
-  //       });
-  //     };
-  //     window.document.body.appendChild(script);
-  //   }
-  // }
   transactionDisplay(){
     
     this.service.createTransaction(this.productAmount).subscribe(
       (response) => {
         console.log(response);
+        // console.log(this.productAmount);
+        // console.log(this.totalAmount);
+        
         if(this.totalAmount >= this.productAmount){
           this.openTransactionModel(response);
         }
@@ -102,7 +52,7 @@ export class PaymentComponent implements OnInit {
       currency: response.currency,
       name: 'Astha',
       description: 'Payment',
-      image: 'D:\CaseStudyAngular\deals-coupons\src\assets\s3.jpg',
+      image: '',
       handler: (response: any) => {
         this.processResponse(response);
       },

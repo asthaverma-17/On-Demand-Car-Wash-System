@@ -7,7 +7,7 @@
                     <div class="card-header fs-5 text-center fw-bold bg-white border-0">{{ wp.name }}</div>
                     <div class="card-body">
                         <p><span class="fw-bold me-2">Cost : </span>₹{{ wp.cost }}</p>
-                        <p><span class="fw-bold me-2">Description    : </span>₹{{ wp.description }}</p>
+                        <p><span class="fw-bold me-2">Description    : </span>{{ wp.description }}</p>
                     </div>
                     <div class="card-footer bg-white border-0">
                         <button class="btn btn-info d-table mx-auto px-4 py-2 fw-bold text-white rounded-pill" [routerLink]="['/user/viewPack/',wp.pack_id]">view</button> 

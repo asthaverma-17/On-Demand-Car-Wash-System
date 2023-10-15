@@ -97,6 +97,7 @@ public class AdminController{
 	public List<customerDetails> getAllCustomers(){
 		return as.getAllCustomers();
 	}
+	
 
 
 }

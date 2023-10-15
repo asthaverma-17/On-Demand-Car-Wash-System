@@ -11,28 +11,39 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class WasherProfile {
 	@Id
 	private  String email;
-	@JsonIgnore
+
 	private String password;
 	private String fullName;
 	private String status;
-	private String phoneNunmber;
+	private String phoneNumber;
 	private String username;
+	private String role;
+
 
 	public WasherProfile()
 	{
 
 	}
-	public WasherProfile(String email, String password, String fullName, String status, String phoneNunmber,
-			String username) {
+	public WasherProfile(String email, String password, String fullName, String status, String phoneNumber,
+			String username,String role) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.fullName = fullName;
 		this.status = status;
-		this.phoneNunmber = phoneNunmber;
+		this.phoneNumber = phoneNumber;
 		this.username = username;
+		this.role=role;
 	}
 
+
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -57,11 +68,11 @@ public class WasherProfile {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getPhoneNunmber() {
-		return phoneNunmber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhoneNunmber(String phoneNunmber) {
-		this.phoneNunmber = phoneNunmber;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getUsername() {
@@ -73,9 +84,12 @@ public class WasherProfile {
 	@Override
 	public String toString() {
 		return "WasherProfile [email=" + email + ", password=" + password + ", fullName=" + fullName + ", status="
-				+ status + ", phoneNunmber=" + phoneNunmber + ", username=" + username + "]";
+				+ status + ", phoneNumber=" + phoneNumber + ", username=" + username + ", role=" + role + "]";
 	}
-
+	
+	
+	
+	
 
 
 }

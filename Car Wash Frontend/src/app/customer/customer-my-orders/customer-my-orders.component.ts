@@ -51,7 +51,7 @@ export class CustomerMyOrdersComponent implements OnInit {
   cancelOrder(){
     this.service.cancelOrder(this.idToCancel).subscribe((data)=>{
      
-      this.router.navigate(['user'])
+      window.location.reload();
       this.cancelModal.hide();
     })
   }

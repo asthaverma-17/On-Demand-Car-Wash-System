@@ -34,6 +34,7 @@ export class CustomerprofileComponent implements OnInit {
   updateCustomerDetails(){ 
    this.service.updateCustomerDetails(this.customer[0]).subscribe({
     next:(data)=> {
+      alert("Profile Updated!");
       this.router.navigate(['user/profile'])
             },
             error:(error)=>console.log(error)

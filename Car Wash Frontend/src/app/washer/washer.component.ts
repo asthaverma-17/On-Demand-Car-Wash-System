@@ -10,9 +10,12 @@ export class WasherComponent implements OnInit {
   deleteModal:any;
   idToDelete: any = "";
   WashersList:any;
+  
  constructor(private service:WasherService){}
   ngOnInit(): void {
     this.getAllWashers();
+   
+    
     this.deleteModal=new window.bootstrap.Modal(
       document.getElementById("deleteModal")
     )
@@ -22,6 +25,8 @@ export class WasherComponent implements OnInit {
   {
   this.service.getAllWashers().subscribe((data)=>{
     this.WashersList=data;
+    console.log(data);
+    
   })
   }
   openDeleteModal(email: any){
@@ -32,7 +37,7 @@ export class WasherComponent implements OnInit {
   deleteWasher(){
     this.service.deleteWasher(this.idToDelete).subscribe((data)=>{
       console.log(this.WashersList);
-      this.WashersList=this.WashersList.filter((_: { email:any }) => _.email !== this.idToDelete);
+      // this.WashersList=this.WashersList.filter((_: { email:any }) => _.email !== this.idToDelete);
       this.deleteModal.hide();
     })
   }

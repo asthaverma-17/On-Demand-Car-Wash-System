@@ -6,14 +6,18 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.green.car.wash.company.washer.controller.WasherController;
 import com.green.car.wash.company.washer.model.WasherProfile;
 import com.green.car.wash.company.washer.repository.WasherRepository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class WasherProfileServiceImpl implements WasherProfileService {
 	@Autowired
 	private WasherRepository WasherRepo;
+	Logger log = LoggerFactory.getLogger(WasherProfileServiceImpl.class);
 
     // washer can only update his phone number, password and status
 	public void updateDetails(WasherProfile details) {
@@ -26,6 +30,9 @@ public class WasherProfileServiceImpl implements WasherProfileService {
 	}
 	//get all washers
 	public List<WasherProfile> getAllWashers() {
+//		System.out.println(WasherRepo.findAll());
+		List<WasherProfile> listw=WasherRepo.findAll();
+		log.info(listw.get(0).getPhoneNumber());
 		return WasherRepo.findAll();
 	}
 	//delete washer by email

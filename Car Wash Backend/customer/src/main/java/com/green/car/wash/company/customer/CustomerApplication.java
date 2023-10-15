@@ -10,8 +10,9 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @SpringBootApplication
 public class CustomerApplication {
+	
+	
 	@Bean
-	@LoadBalanced
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}

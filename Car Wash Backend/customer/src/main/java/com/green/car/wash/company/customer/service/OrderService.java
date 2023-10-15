@@ -25,11 +25,11 @@ public class OrderService {
 	    //Url to access the methods of Order Service
 	    String url="http://ORDER/orders";
 	    //Url to access the methods of admin Service
-	    String url1="http://ADMIN/admins";
+	    String url1="http://localhost:8081/admins";
 
 	    //To see all the WashPacks
 	    public List<WashPacks> getAllWP(){
-	        WashPacks[] wp=restTemplate.getForObject(url1+"/all/findWP",WashPacks[].class);
+	        WashPacks[] wp=restTemplate.getForObject("http://localhost:8081/admins/all/findWP",WashPacks[].class);
 	        return (Arrays.asList(wp));
 	    }
 
