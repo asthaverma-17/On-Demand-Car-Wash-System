@@ -8,7 +8,8 @@ declare var window: any;
 })
 export class WasherComponent implements OnInit {
   deleteModal:any;
-  idToDelete: any = "";
+  // idToDelete: any = "";
+  idToDelete: any;
   WashersList:any;
   
  constructor(private service:WasherService){}
@@ -37,7 +38,7 @@ export class WasherComponent implements OnInit {
   deleteWasher(){
     this.service.deleteWasher(this.idToDelete).subscribe((data)=>{
       console.log(this.WashersList);
-      // this.WashersList=this.WashersList.filter((_: { email:any }) => _.email !== this.idToDelete);
+      this.WashersList=this.WashersList.filter((_: { email:any }) => _.email !== this.idToDelete);
       this.deleteModal.hide();
     })
   }

@@ -26,7 +26,8 @@ public class AdminService {
 	// Url to access the methods of Order Service
 	String url = "http://order/orders";
 	// Url to access the methods of washer Service
-	String url1 = "http://washer/washers/admin/";
+	String url1 = "http://localhost:8084/washers/admin/";
+	String url2="http://localhost:8082/customer/allCustomers";
 
 	// To see all the Orders
 	public List<OrderDetails> getAllOrders() {
@@ -57,8 +58,17 @@ public class AdminService {
 	}
 
 	public List<customerDetails> getAllCustomers() {
-		customerDetails[] customers =restTemplate.getForObject("http://customer/customer/allCustomers", customerDetails[].class);
+		customerDetails[] customers =restTemplate.getForObject(url2, customerDetails[].class);
 		return (Arrays.asList(customers));
 	}
+
+	public void deleteWasher(String email) {
+		// TODO Auto-generated method stub
+		
+		restTemplate.delete(url1 + "/delete/"+email);
+		
+	}
+	
+	
 
 }

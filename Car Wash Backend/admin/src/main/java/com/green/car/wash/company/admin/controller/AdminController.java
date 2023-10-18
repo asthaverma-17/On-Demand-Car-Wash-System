@@ -99,6 +99,12 @@ public class AdminController{
 	}
 	
 
+	@DeleteMapping("/deleteWasher/{email}")
+	public void deleteWasher(@PathVariable("email") String email)
+	{
+		as.deleteWasher(email);
+	}
+	
 
 }
 

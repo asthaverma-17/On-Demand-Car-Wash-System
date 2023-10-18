@@ -46,9 +46,11 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 	}
 
 	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
 
-	}
+    public PasswordEncoder passwordEncoder() {
+
+        return NoOpPasswordEncoder.getInstance();
+
+    }
 
 }

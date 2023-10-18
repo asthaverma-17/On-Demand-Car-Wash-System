@@ -12,9 +12,9 @@ export class WasherService {
   {
     return this.http.get('http://localhost:8081/admins/AllWashers')
   }
-  deleteWasher(email:any):Observable<any>
+  deleteWasher(email:any)
   {
-    return this.http.get<any>(`http://localhost:8084/washers/admin/delete/${email}`)
+    return this.http.delete<any>('http://localhost:8081/admins/deleteWasher/'+email)
   }
   getWashPacks()
   {

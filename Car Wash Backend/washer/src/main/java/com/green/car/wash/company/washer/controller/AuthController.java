@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,8 @@ public class AuthController {
 	private JwtUtil jwtTokenUtil;
 	@Autowired
 	private WasherRepository repo;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@PostMapping("/register")
 	
@@ -48,7 +51,7 @@ public class AuthController {
 		}
 
 		String username = request.getUsername();
-		String password = request.getPassword();
+		String password = passwordEncoder.encode(request.getPassword());
 		String email=request.getEmail();
 		String fullName=request.getFullName();
 		String phoneNumber=request.getPhoneNumber();
@@ -76,12 +79,11 @@ public class AuthController {
 		    return ResponseEntity.ok(new AuthenticationResponse("client subscribed with username " + username));
 	}
 	@PostMapping("/login")
-	//System.out.println("sreeja");
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
-		System.out.println("sreeja");
+		System.out.println("token created!");
 		try
 		{
-			System.out.println("sreeja");
+			System.out.println("before auth");
 		authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
 	}

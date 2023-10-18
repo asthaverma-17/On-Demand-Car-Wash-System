@@ -2,6 +2,7 @@ package com.green.car.wash.company.washer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import com.green.car.wash.company.washer.model.OrderDetails;
 import com.green.car.wash.company.washer.model.WashPacks;
@@ -13,7 +14,7 @@ import java.util.List;
 
 
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200/")
 @RestController
 @RequestMapping("/washers")
 public class WasherController {
@@ -60,8 +61,9 @@ public class WasherController {
     public List<WasherProfile> getAllWashers(@PathVariable String fullName){
         return wps.getWasher(fullName);
     }
-    @GetMapping("/admin/delete/{email}")
-    public void deleteproduct(@PathVariable String email)
+    
+    @DeleteMapping("/admin/delete/{email}")
+    public void deleteWasher(@PathVariable String email)
     {
 
         wps.deleteById(email);
